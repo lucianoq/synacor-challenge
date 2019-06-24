@@ -1,0 +1,3 @@
+# Synacor challenge
+
+Amazing game.

@@ -1,0 +1,271 @@
+digraph {
+    Foothills
+    Foothills_south
+    Dark_cave_mouth
+    Dark_cave_narrow
+    Dark_cave_acoustics
+    Rope_bridge
+    Falling_through_the_air
+    Moss_cavern
+    Moss_cavern_lantern
+    Moss_cavern_crevise
+    Passage
+    Passage_Black
+    Fumbling_around
+    Fumbling_around_growling
+    Panicked_and_lost
+    Twisty_passages
+    Twisty_passages_twisty_maze
+    Twisty_passages_little_twisty
+    Twisty_passages_all_twisty
+    Twisty_passages_all_little
+    Twisty_passages_little_maze
+    Twisty_passages_all_maze
+    Twisty_passages_CODE
+
+    Passage_Light
+    Dark_Passage
+    Dark_Narrow_Passage
+    Dark_Narrow_Passage_2
+    Dark_Narrow_Passage_Vegetation
+    Ruins
+    Ruins_coin
+    Ruins_math
+    door_locked
+    Ruins_dining_hall
+    Ruins_kitchen
+    Ruins_living_quarters
+    Ruins_throne
+    Ruins_teleporter
+    Synacor_headquarters
+    Synacor_headquarters_outside
+
+    Beach
+    Beach_west
+    Beach_east
+    Tropical_island
+    Tropical_waterfall
+    Tropical_toegher
+    Tropical_narrow_path
+    Tropical_slopes
+    Tropical_cave
+    Tropical_cave_fireflies
+    Tropical_cave_wider
+    Tropical_cave_alcove
+    Tropical_cave_tunnel
+    Vault_antechamber
+    Vault_Door
+    Vault
+
+    DEAD
+
+    Foothills -> Foothills [label = "take tablet"];
+    Foothills -> Foothills_south [label = "south"];
+    Foothills -> Dark_cave_mouth [label = "doorway"];
+    Foothills_south -> Foothills [label = "north"];
+    Dark_cave_mouth -> Foothills [label = "south"];
+    Dark_cave_mouth -> Dark_cave_narrow [label = "north"];
+
+    Dark_cave_narrow -> Dark_cave_mouth [label = "south"];
+    Dark_cave_narrow -> Dark_cave_acoustics [label = "north"];
+
+    Dark_cave_acoustics -> Rope_bridge [label = "bridge"];
+    Dark_cave_acoustics -> Dark_cave_mouth [label = "south"];
+
+    Rope_bridge -> Falling_through_the_air [label = "continue"];
+    Rope_bridge -> Dark_cave_acoustics [label = "back"];
+
+    Falling_through_the_air -> Moss_cavern [label = "down"];
+
+    Moss_cavern -> Moss_cavern_crevise [label = "west"];
+    Moss_cavern -> Moss_cavern_lantern [label = "east"];
+
+    Moss_cavern_lantern -> Moss_cavern [label = "west"];
+    Moss_cavern_lantern -> Moss_cavern_lantern [label = "take empty lantern"];
+
+    Moss_cavern_crevise -> Moss_cavern [label = "east"];
+    Moss_cavern_crevise -> Passage [label = "passage"];
+
+    Passage -> Moss_cavern_crevise [label = "cavern"];
+    Passage -> Twisty_passages [label = "ladder"];
+    Passage -> Passage_Black [label = "darkness"];
+    Passage -> Passage_Light [label = "[lantern] darkness"];
+
+    Passage_Black -> Fumbling_around [label = "continue"];
+    Passage_Black -> Passage [label = "back"];
+
+    Fumbling_around -> Fumbling_around_growling [label = "forward"];
+    Fumbling_around -> Fumbling_around_growling [label = "back"];
+
+    Fumbling_around_growling -> Panicked_and_lost [label = "run"];
+    Fumbling_around_growling -> Panicked_and_lost [label = "investigate"];
+
+    Panicked_and_lost -> DEAD [label = "run"];
+    Panicked_and_lost -> DEAD [label = "wait"];
+    Panicked_and_lost -> DEAD [label = "hide"];
+
+    Twisty_passages -> Passage [label = "ladder"];
+    Twisty_passages -> Twisty_passages_twisty_maze [label = "north"];
+    Twisty_passages -> Twisty_passages_little_twisty [label = "south"];
+    Twisty_passages -> Twisty_passages_all_twisty [label = "east"];
+    Twisty_passages -> Twisty_passages_little_maze [label = "west"];
+
+    Twisty_passages_twisty_maze -> Twisty_passages_little_twisty [label = "north"];
+    Twisty_passages_twisty_maze -> Twisty_passages [label = "south"];
+    Twisty_passages_twisty_maze -> Twisty_passages_twisty_maze [label = "west"];
+
+    Twisty_passages_little_twisty -> Twisty_passages [label = "north"];
+    Twisty_passages_little_twisty -> Twisty_passages_twisty_maze [label = "south"];
+    Twisty_passages_little_twisty -> Twisty_passages_little_twisty [label = "east"];
+
+    Twisty_passages_all_twisty -> Twisty_passages_all_little [label = "north"];
+    Twisty_passages_all_twisty -> Twisty_passages_all_twisty [label = "south"];
+    Twisty_passages_all_twisty -> Twisty_passages [label = "west"];
+    Twisty_passages_all_twisty -> Fumbling_around [label = "east"];
+
+    Twisty_passages_all_little -> Twisty_passages_little_twisty [label = "north"];
+    Twisty_passages_all_little -> Twisty_passages_twisty_maze [label = "east"];
+    Twisty_passages_all_little -> Twisty_passages_all_little [label = "south"];
+
+    Twisty_passages_little_maze -> Twisty_passages_little_maze [label = "north"];
+    Twisty_passages_little_maze -> Twisty_passages_all_maze [label = "south"];
+    Twisty_passages_little_maze -> Twisty_passages [label = "east"];
+
+    Twisty_passages_all_maze -> Twisty_passages_CODE [label = "north"];
+    Twisty_passages_all_maze -> Twisty_passages_twisty_maze [label = "south"];
+    Twisty_passages_all_maze -> Twisty_passages_little_twisty [label = "west"];
+    Twisty_passages_all_maze -> Fumbling_around [label = "east"];
+
+    Twisty_passages_CODE -> Twisty_passages_CODE [label = "take can"];
+    Twisty_passages_CODE -> Twisty_passages [label = "west"];
+
+    ///////////////////////////////////
+    take_tablet
+    use_tablet
+    take_empty_lantern
+    take_can
+    use_can
+    use_lantern
+
+    take_tablet -> use_tablet;
+    take_empty_lantern -> take_can -> use_can -> use_lantern;
+    ///////////////////////////////////
+
+    Passage_Light -> Dark_Passage [label = "continue"];
+    Passage_Light -> Passage [label = "back"];
+
+    Dark_Passage -> Dark_Narrow_Passage [label = "west"];
+    Dark_Passage -> Passage_Light [label = "east"];
+
+    Dark_Narrow_Passage -> Dark_Passage [label = "east"];
+    Dark_Narrow_Passage -> Dark_Narrow_Passage_2 [label = "west"];
+
+    Dark_Narrow_Passage_2 -> Dark_Narrow_Passage_Vegetation [label = "west"];
+    Dark_Narrow_Passage_2 -> Dark_Narrow_Passage [label = "east"];
+
+    Dark_Narrow_Passage_Vegetation -> Dark_Narrow_Passage_2 [label = "east"];
+    Dark_Narrow_Passage_Vegetation -> Ruins [label = "west"];
+
+    Ruins -> Dark_Narrow_Passage_Vegetation [label = "east"];
+    Ruins -> Ruins_coin [label = "north"];
+
+    Ruins_coin -> Ruins_coin [label = "take red coin"]; // This coin is made of a red metal.  It has two dots on one side.
+    Ruins_coin -> Ruins_math [label = "north"]; // _ + _ * _^2 + _^3 - _ = 399
+    Ruins_coin -> Ruins [label = "south"];
+
+    Ruins_math -> door_locked [label = "north"];
+    Ruins_math -> Ruins_teleporter [label = "[coins] north"]
+    Ruins_math -> Ruins_coin [label = "south"];
+    Ruins_math -> Ruins_dining_hall [label = "east"];
+    Ruins_math -> Ruins_living_quarters [label = "west"];
+
+    Ruins_dining_hall -> Ruins_dining_hall [label = "take concave coin"]; // This coin is slightly rounded, almost like a tiny bowl.  It has seven dots on one side.
+    Ruins_dining_hall -> Ruins_kitchen [label = "down"];
+    Ruins_dining_hall -> Ruins_math [label = "west"];
+
+    Ruins_kitchen -> Ruins_kitchen [label = "take corroded coin"]; // This coin is somewhat corroded.  It has a triangle on one side.
+    Ruins_kitchen -> Ruins_dining_hall [label = "up"];
+
+    Ruins_living_quarters -> Ruins_living_quarters [label = "take blue coin"]; // This coin is made of a blue metal.  It has nine dots on one side.
+    Ruins_living_quarters -> Ruins_throne [label = "up"];
+    Ruins_living_quarters -> Ruins_math [label = "east"];
+
+    Ruins_throne -> Ruins_throne [label = "take shiny coin"]; // This coin is somehow still quite shiny.  It has a pentagon on one side.
+    Ruins_throne -> Ruins_living_quarters [label = "down"];
+
+    ///////////////////////////////////
+ //   [2,3,5,7,9].permutation(5).select {|a,b,c,d,e| a + b * c**2 + d**3 - e == 399 }
+ //   => [[9, 2, 5, 7, 3]]
+    use_blue_coin
+    use_red_coin
+    use_shiny_coin
+    use_concave_coin
+    use_corroded_coin
+    use_blue_coin -> use_red_coin -> use_shiny_coin -> use_concave_coin -> use_corroded_coin
+    ///////////////////////////////////
+
+    Ruins_teleporter -> Ruins_math [label = "south"]
+    Ruins_teleporter -> Ruins_teleporter [label = "take teleporter"]
+    Ruins_teleporter -> Synacor_headquarters [label = "use teleporter"]
+
+    Ruins_teleporter -> Beach [label = "[with hack] use teleporter"]
+
+    Synacor_headquarters -> Synacor_headquarters [label = "take business card"]
+    Synacor_headquarters -> Synacor_headquarters [label = "take strange book"]
+    Synacor_headquarters -> Synacor_headquarters_outside [label = "outside"]
+    Synacor_headquarters_outside -> Synacor_headquarters [label = "inside"]
+
+    Beach -> Beach_west [label = "west"]
+    Beach -> Beach_east [label = "east"]
+    Beach -> Tropical_island [label = "north"]
+
+    Beach_west -> Beach [label = "east"]
+    Beach_west -> Tropical_island [label = "north"]
+
+    Beach_east -> Beach [label = "west"]
+    Beach_east -> Tropical_waterfall [label = "north"]
+
+    Tropical_island -> Tropical_toegher [label = "north"]
+    Tropical_island -> Beach [label = "south"]
+    Tropical_island -> Tropical_waterfall [label = "east"]
+
+    Tropical_waterfall -> Beach_east [label = "south"]
+    Tropical_waterfall -> Tropical_island [label = "west"]
+    Tropical_waterfall -> Tropical_toegher [label = "north"]
+
+    Tropical_toegher -> Tropical_island [label = "south"]
+    Tropical_toegher -> Tropical_narrow_path [label = "north"]
+
+    Tropical_narrow_path -> Tropical_toegher [label = "south"]
+    Tropical_narrow_path -> Tropical_slopes [label = "north"]
+
+    Tropical_slopes -> Tropical_narrow_path [label = "south"]
+    Tropical_slopes -> Tropical_cave [label = "north"]
+
+    Tropical_cave -> Tropical_slopes [label = "south"]
+    Tropical_cave -> Tropical_cave_fireflies [label = "north"]
+
+    Tropical_cave_fireflies -> Tropical_cave [label = "south"]
+    Tropical_cave_fireflies -> Tropical_cave_wider [label = "north"]
+
+    Tropical_cave_wider -> Tropical_cave_tunnel [label = "north"]
+    Tropical_cave_wider -> Tropical_cave_fireflies [label = "south"]
+    Tropical_cave_wider -> Tropical_cave_alcove [label = "east"]
+
+    Tropical_cave_alcove -> Tropical_cave_alcove [label = "take journal"]
+    Tropical_cave_alcove -> Tropical_cave_wider [label = "west"]
+
+    Tropical_cave_tunnel -> Vault_antechamber [label = "north"]
+    Tropical_cave_tunnel -> Tropical_cave_wider [label = "south"]
+
+    Vault_antechamber -> Vault_antechamber [label = "take orb"]
+
+    Vault_antechamber -> Vault_Door [label = "NEENWSEEWNNE"]
+
+    Vault_Door -> Vault [label = "vault"]
+
+    Vault -> Vault [label = "take mirror"]
+    Vault -> Vault [label = "use mirror"]
+}
+
+
